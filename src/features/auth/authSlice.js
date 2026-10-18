@@ -15,7 +15,7 @@ const authSlice = createSlice({
       }
       users.push(payload);
       localStorage.setItem('users', JSON.stringify(users));
-      const { password, ...safeUser } = payload;
+      const safeUser = { ...payload }; delete safeUser.password;
       state.user = safeUser;
       state.error = null;
       localStorage.setItem('currentUser', JSON.stringify(safeUser));
@@ -28,7 +28,7 @@ const authSlice = createSlice({
         state.error = 'Invalid email or password';
         return;
       }
-      const { password, ...safeUser } = found;
+      const safeUser = { ...found }; delete safeUser.password;
       state.user = safeUser;
       state.error = null;
       localStorage.setItem('currentUser', JSON.stringify(safeUser));

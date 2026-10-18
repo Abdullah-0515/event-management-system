@@ -1,5 +1,5 @@
 const BASE = 'https://app.ticketmaster.com/discovery/v2';
-const KEY = import.meta.env.VITE_TM_API_KEY;
+const KEY = import.meta.env.VITE_TICKETMASTER_API_KEY;
 
 const clean = (obj) =>
   Object.fromEntries(Object.entries(obj).filter(([, v]) => v !== '' && v != null));
